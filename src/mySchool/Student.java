@@ -1,7 +1,7 @@
-package My_School;
+package mySchool;
 
 public class Student {
-    private Mark[] marks = new Mark[0];
+    private Mark[] marks = new Mark[10];
     private String student;
 
     public Student(String student) {
@@ -25,15 +25,18 @@ public class Student {
         this.student = student;
     }
 
-    public void addMark(Mark m){
-        Mark[] NewMark = new Mark[marks.length + 1];
+    public void addMark(Mark newMark){
+        MyArray myArray = new MyArray();
+        Object[] newObject = myArray.addElement(marks,newMark);
+        fillArray(newObject);
 
-        for (int i = 0; i < marks.length; i++) {
-            NewMark[i] = marks[i];
+    }
+
+    private void fillArray(Object[] recieveObject){
+        for (int i = 0; i < recieveObject.length; i++) {
+            if (recieveObject[i] == null) break;
+            marks[i] = (Mark) recieveObject[i];
         }
-            NewMark[NewMark.length - 1] = m;
-
-            marks = NewMark;
     }
 
     public void addMark(int value, String subject){
@@ -48,6 +51,7 @@ public class Student {
         double sum = 0;
         int count = 0;
         for (int i = 0; i < marks.length; i++) {
+            if (marks[i] == null) break;
             sum+=marks[i].getMark();
             count++;
         }
@@ -56,10 +60,14 @@ public class Student {
     }
 
     public String toString(){
-        String FullString = "\n";
-        for(Mark m : marks){
-            FullString += m.getSubject()+ ":" + m.getMark() + "\n";
+        StringBuilder FullString = new StringBuilder();
+        for(Mark mark : marks){
+            if (mark == null) break;
+            FullString.append(mark.getSubject())
+                      .append(":")
+                      .append(mark.getMark())
+                      .append("\n");
         }
-        return "Студент "+student + " оценки: "+ FullString;
+        return "Студент "+student + " оценки: \n"+ FullString;
     }
 }

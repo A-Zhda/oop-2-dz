@@ -1,11 +1,26 @@
-package My_School;
+package mySchool;
 
 public class main {
-    public static void main(String[] args) {
+    public enum Subjects{
+        MATH("Математика"),
+        HISTORY("История"),
+        GEOGRAPHY("География"),
+        ;
 
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+        Subjects(String name) {
+            this.name = name;
+        }
+    }
+    public static void main(String[] args) {
         School NewSchool = new School("Школа1");
 
-        Mark NewMark = new Mark(3,"Математика");
+        Mark NewMark1 = new Mark(4,Subjects.MATH.name);
+        Mark NewMark = new Mark(3,Subjects.MATH.name);
 
         Student Sidorov = new Student("Сидоров");
         Student Ivanov = new Student("Иванов");
@@ -13,25 +28,25 @@ public class main {
         Student Ivanova = new Student("Иванова");
         Student Musaev = new Student("Мусаев");
 
-        Sidorov.addMark(3,"Математика");
-        Sidorov.addMark(2,"История");
-        Sidorov.addMark(5,"Геометрия");
+        Sidorov.addMark(3,Subjects.MATH.name);
+        Sidorov.addMark(2,Subjects.HISTORY.name);
+        Sidorov.addMark(5,Subjects.GEOGRAPHY.name);
 
-        Ivanov.addMark(5,"История");
+        Ivanov.addMark(5,Subjects.HISTORY.name);
         Ivanov.addMark(NewMark);
-        Ivanov.addMark(5,"Геометрия");
+        Ivanov.addMark(5,Subjects.GEOGRAPHY.name);
 
-        Urova.addMark(4,"Математика");
-        Urova.addMark(3,"История");
-        Urova.addMark(5,"Геометрия");
+        Urova.addMark(4,Subjects.MATH.name);
+        Urova.addMark(3,Subjects.HISTORY.name);
+        Urova.addMark(5,Subjects.GEOGRAPHY.name);
 
-        Ivanova.addMark(5,"Математика");
-        Ivanova.addMark(5,"История");
-        Ivanova.addMark(5,"Геометрия");
+        Ivanova.addMark(5,Subjects.MATH.name);
+        Ivanova.addMark(5,Subjects.HISTORY.name);
+        Ivanova.addMark(5,Subjects.GEOGRAPHY.name);
 
-        Musaev.addMark(2,"Математика");
-        Musaev.addMark(3,"История");
-        Musaev.addMark(4,"Геометрия");
+        Musaev.addMark(2,Subjects.MATH.name);
+        Musaev.addMark(3,Subjects.HISTORY.name);
+        Musaev.addMark(4,Subjects.GEOGRAPHY.name);
 
         System.out.println(Ivanov.toString());
 
