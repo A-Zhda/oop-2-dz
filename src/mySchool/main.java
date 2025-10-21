@@ -62,13 +62,13 @@ public class main {
         System.out.println(NewClass.averageStudentsMark());
         System.out.println(NewClass2.averageStudentsMark());
 
-        System.out.println(NewClass.bestStudent().getStudent());
-        System.out.println(NewClass2.bestStudent().getStudent());
+        System.out.println("Лучший студент класса: "+NewClass.bestStudent().getStudent());
+        System.out.println("Лучший студент класса: "+NewClass2.bestStudent().getStudent());
 
         NewSchool.addSchoolClass(NewClass);
         NewSchool.addSchoolClass(NewClass2);
 
-        System.out.println(NewSchool.bestStudent().toString());
+        System.out.println("Лучший студент школы: " +NewSchool.bestStudent().toString());
         System.out.println(NewSchool.averageSchoolMark());
 
         System.out.println(NewSchool.getClass(1) == null ?
